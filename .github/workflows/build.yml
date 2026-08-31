@@ -35,4 +35,10 @@ jobs:
 
       - name: Build application
         run: |
-          python -m PyInstaller --onedir --windowed --icon=src\excelxml.ico --add-data "src\excelxml.ico;." --name ExcelXMLConverter src\main.py
+          python -m PyInstaller --onefile --windowed --icon=src/excelxml.ico --add-data "src/excelxml.ico;." --name ExcelXMLConverter src/main.py
+
+      - name: Upload EXE artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ExcelXMLConverter
+          path: dist/ExcelXMLConverter.exe
